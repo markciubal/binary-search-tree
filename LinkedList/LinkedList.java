@@ -1,18 +1,24 @@
 // Decalre the package.
 package LinkedList;
 
-// Import the Node class.
-import Node.Node;
-
 // Define the LinkedList class.
 public class LinkedList {
+    // Define the Node class.
+    private class Node {
+        // Holds the next node in the list
+        public Node next;
+
+        // Holds the value of the node.
+        public String Value;
+    }
+
     // Pointers to the head and tail of the list.
     private Node Head;
     private Node Tail;
 
     // About me.
-    public void About() {
-        System.out.println("Mark is 37 years old, is married, and has a dog.");
+    public String About() {
+        return "Mark is 37 years old, is married, and has a dog.";
     }
 
     // Add a new node at the head of the list.
@@ -43,11 +49,7 @@ public class LinkedList {
 
     // Check if the list is empty.
     public boolean IsEmpty() {
-        if (Head == null) {
-            return true;
-        } else {
-            return false;
-        }
+        return Head == null;
     }
     // Convert the linked list to a string representation.
     public String ToList() {
