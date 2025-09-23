@@ -1,5 +1,5 @@
 // Decalre the package.
-package LinkedList;
+
 
 // Define the LinkedList class.
 public class LinkedList {
