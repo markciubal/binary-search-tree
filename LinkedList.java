@@ -1,15 +1,26 @@
-// Decalre the package.
-
-
 // Define the LinkedList class.
 public class LinkedList {
     // Define the Node class.
     private class Node {
         // Holds the next node in the list
-        public Node next;
+        public Node Next;
 
-        // Holds the value of the node.
+        // Holds the key/value of the node.
+        public String Key;
         public String Value;
+
+        // Constructor to initialize an string entry for node.
+        public Node(String entry) {
+            String[] pair = entry.split(":");
+            this.Key = pair[0].trim();
+            this.Value = pair[1].trim();
+        }
+        // Constructor to initialize the node with key and value.
+        public Node(String key, String value) {
+            this.Key = key;
+            this.Value = value;
+        }
+
     }
 
     // Pointers to the head and tail of the list.
@@ -23,26 +34,26 @@ public class LinkedList {
 
     // Add a new node at the head of the list.
     public void AddHead(String value) {
-        Node newNode = new Node();
+        Node newNode = new Node(value);
         newNode.Value = value;
         if (Head == null) {
             Head = newNode;
             Tail = newNode;
         } else {
-            newNode.next = Head;
+            newNode.Next = Head;
             Head = newNode;
         }
     }
 
     // Add a new node at the tail of the list.
     public void AddTail(String value) {
-        Node newNode = new Node();
+        Node newNode = new Node(value);
         newNode.Value = value;
         if (Tail == null) {
             Head = newNode;
             Tail = newNode;
         } else {
-            Tail.next = newNode;
+            Tail.Next = newNode;
             Tail = newNode;
         }
     }
@@ -62,7 +73,7 @@ public class LinkedList {
         // Traverse the list.
         while (current != null) {
             sb.append(count).append(": ").append(current.Value).append('\n');
-            current = current.next;
+            current = current.Next;
             count++;
         }
 
