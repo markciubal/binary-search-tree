@@ -20,6 +20,11 @@ public class LinkedList {
             this.Key = key;
             this.Value = value;
         }
+        
+        public Node(KeyValue kv) {
+            this.Key = kv.key;
+            this.Value = kv.value;
+        }
 
     }
 
@@ -44,6 +49,16 @@ public class LinkedList {
             Head = newNode;
         }
     }
+    void AddHead(KeyValue entry) {
+        Node newNode = new Node(entry);
+        if (Head == null) {
+            Head = newNode;
+            Tail = newNode;
+        } else {
+            newNode.Next = Head;
+            Head = newNode;
+        }
+    }
 
     // Add a new node at the tail of the list.
     public void AddTail(String value) {
@@ -56,6 +71,31 @@ public class LinkedList {
             Tail.Next = newNode;
             Tail = newNode;
         }
+    }
+
+    public void AddTail(KeyValue entry) {
+        Node newNode = new Node(entry);
+        if (Tail == null) {
+            Head = newNode;
+            Tail = newNode;
+        } else {
+            Tail.Next = newNode;
+            Tail = newNode;
+        }
+    }
+
+     public KeyValue RemoveHead() {
+        if (Head == null) return null;           // empty
+
+        KeyValue result = new KeyValue(Head.Key, Head.Value);
+
+        if (Head == Tail) {                      // one node
+            Head = null;
+            Tail = null;
+        } else {                                 // 2+ nodes
+            Head = Head.Next;
+        }
+        return result;
     }
 
     // Check if the list is empty.
@@ -72,7 +112,7 @@ public class LinkedList {
 
         // Traverse the list.
         while (current != null) {
-            sb.append(count).append(": ").append(current.Value).append('\n');
+            sb.append(current.Key).append(": ").append(current.Value).append('\n');
             current = current.Next;
             count++;
         }
