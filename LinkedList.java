@@ -40,7 +40,6 @@ public class LinkedList {
     // Add a new node at the head of the list.
     public void AddHead(String value) {
         Node newNode = new Node(value);
-        newNode.Value = value;
         if (Head == null) {
             Head = newNode;
             Tail = newNode;
@@ -63,7 +62,6 @@ public class LinkedList {
     // Add a new node at the tail of the list.
     public void AddTail(String value) {
         Node newNode = new Node(value);
-        newNode.Value = value;
         if (Tail == null) {
             Head = newNode;
             Tail = newNode;

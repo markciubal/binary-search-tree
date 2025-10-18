@@ -39,50 +39,55 @@ public class Main {
         } catch (IOException error) {
             error.printStackTrace();
         }
-        System.out.println("Queue...");
+
+        // Display the lists.
+        System.out.println("\nList tail...");
+        System.out.println(listTail.ToList());
+
+        System.out.println("\nList head...");
+        System.out.println(listHead.ToList());
+
+        // Display queue.
+        System.out.println("\nQueue...");
         System.out.print(queue.ToList());
 
-        System.out.println("Dequeue...");
+        System.out.println("\nDequeue...");
         while (!queue.IsEmpty()) {
             KeyValue kv = queue.Dequeue();
             System.out.println(kv.key + ": " + kv.value);
         }
 
-        System.out.println("Stack...");
+        System.out.println("\nStack...");
         System.out.print(stack.ToList());
-        System.out.println("Pop...");
 
+        System.out.println("\nPop...");
         while (!stack.IsEmpty()) { 
             KeyValue kv = stack.Pop();
             System.out.println(kv.key + ": " + kv.value);
         }
 
-        System.out.println("Manual Enqueue/Push...");
+        System.out.println("\nManual Enqueue/Push...");
         queue.Enqueue(new KeyValue("250", "Snickers"));
         queue.Enqueue(new KeyValue("220", "KitKat"));
         stack.Push(new KeyValue("230", "Twix"));
         stack.Push(new KeyValue("210", "Reese's"));
 
-        System.out.println("Queue after manual addition...");                   // NEW
+        System.out.println("\nQueue after manual addition...");                   // NEW
         System.out.print(queue.ToList());  
 
-        System.out.println("Stack after manual addition...");                   // NEW
+        System.out.println("\nStack after manual addition...");                   // NEW
         System.out.print(stack.ToList());  
         
-        System.out.println("Dequeue...");                           // NEW
+        System.out.println("\nDequeue...");                           // NEW
         while (!queue.IsEmpty()) {                                                // NEW
             KeyValue kv = queue.Dequeue();                                        // NEW
             System.out.println(kv.key + ": " + kv.value);                         // NEW
         }
         
-        System.out.println("Pop...");                               // NEW
+        System.out.println("\nPop...");                               // NEW
         while (!stack.IsEmpty()) {                                                // NEW
             KeyValue kv = stack.Pop();                                            // NEW
             System.out.println(kv.key + ": " + kv.value);                         // NEW
         }
-        // Display the lists.
-        // System.out.println("List...");
-        // System.out.println(listTail.ToList());
-        // System.out.println(listHead.ToList());
     }
 }
